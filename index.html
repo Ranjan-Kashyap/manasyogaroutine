@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manas Yoga Routine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FAF8F3;
+      --white: #ffffff;
+      --section: #F3EEE6;
+      --primary: #6D8A5C;
+      --primary-dark: #587247;
+      --accent: #B57A4B;
+      --heading: #2F3B31;
+      --text: #5E635D;
+      --border: #E5DED2;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      --radius: 24px;
+      --container: 1180px;
+      --header-h: 78px;
+      --transition: 0.35s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Outfit", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+
+    .container {
+      width: min(100% - 2.5rem, var(--container));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.85rem;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--heading);
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+    h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3.1rem); margin-bottom: 1rem; }
+    h3 { font-size: clamp(1.35rem, 2.2vw, 1.7rem); }
+
+    .lead {
+      font-size: 1.05rem;
+      max-width: 38rem;
+      color: var(--text);
+    }
+
+    .section {
+      padding: clamp(4rem, 8vw, 6.5rem) 0;
+      position: relative;
+    }
+
+    .section--alt { background: var(--section); }
+    .section--white { background: var(--white); }
+
+    .section-head {
+      text-align: center;
+      max-width: 40rem;
+      margin: 0 auto 3rem;
+    }
+
+    .section-head .lead { margin-inline: auto; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.95rem 1.7rem;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: transform var(--transition), background var(--transition), color var(--transition), box-shadow var(--transition);
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: 0 12px 30px rgba(109, 138, 92, 0.28);
+    }
+
+    .btn-primary:hover { background: var(--primary-dark); }
+
+    .btn-outline {
+      border: 1.5px solid var(--primary);
+      color: var(--primary-dark);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-light {
+      background: var(--white);
+      color: var(--primary-dark);
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-top: 1.75rem;
+    }
+
+    /* Header */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      height: var(--header-h);
+      backdrop-filter: blur(14px);
+      background: rgba(250, 248, 243, 0.88);
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+    }
+
+    .site-header.is-scrolled {
+      border-bottom-color: var(--border);
+      box-shadow: 0 8px 30px rgba(47, 59, 49, 0.06);
+      background: rgba(255, 255, 255, 0.94);
+    }
+
+    .header-inner {
+      height: var(--header-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--heading);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .logo span { color: var(--primary); }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
+
+    .nav a {
+      font-size: 0.92rem;
+      color: var(--text);
+      font-weight: 400;
+      transition: color var(--transition);
+    }
+
+    .nav a:hover { color: var(--primary-dark); }
+
+    .nav a.nav-cta {
+      padding: 0.65rem 1.25rem;
+      font-size: 0.85rem;
+      color: #ffffff;
+      background: var(--primary);
+      box-shadow: 0 8px 22px rgba(109, 138, 92, 0.28);
+      transition: transform var(--transition), background var(--transition), color var(--transition), box-shadow var(--transition);
+    }
+
+    .nav a.nav-cta:hover {
+      color: #ffffff;
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(88, 114, 71, 0.4);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--white);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 18px;
+      height: 1.5px;
+      background: var(--heading);
+      transition: var(--transition);
+    }
+
+    .menu-toggle.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .menu-toggle.is-open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      padding-top: calc(var(--header-h) + 2rem);
+      padding-bottom: 4rem;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at top left, #eef5ea 0%, transparent 45%),
+        radial-gradient(circle at bottom right, #f6eee7 0%, transparent 40%),
+        var(--bg);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-copy .lead { margin-top: 1.1rem; }
+
+    .hero-visual {
+      position: relative;
+      min-height: 420px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(145deg, rgba(109, 138, 92, 0.18), rgba(181, 122, 75, 0.12)),
+        url("https://images.unsplash.com/photo-1544367563-12121e9e7ed1?auto=format&fit=crop&w=1200&q=80") center/cover;
+      box-shadow: var(--shadow);
+      animation: floatIn 1s ease both;
+    }
+
+    .hero-badge {
+      position: absolute;
+      left: 1.25rem;
+      bottom: 1.25rem;
+      background: rgba(255, 255, 255, 0.94);
+      padding: 1rem 1.25rem;
+      border-radius: 16px;
+      max-width: 220px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-badge strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.35rem;
+      color: var(--heading);
+      line-height: 1.2;
+    }
+
+    .hero-badge span {
+      font-size: 0.82rem;
+      color: var(--text);
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.2rem;
+      color: var(--primary-dark);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .stat span { font-size: 0.88rem; }
+
+    /* Journey */
+    .journey-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .journey-panel {
+      border-radius: var(--radius);
+      min-height: 420px;
+      background:
+        linear-gradient(160deg, rgba(47, 59, 49, 0.25), rgba(47, 59, 49, 0.45)),
+        url("https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80") center/cover;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.75rem;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.25rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card .num {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.8rem;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .feature-card p { font-size: 0.9rem; }
+
+    /* Guide */
+    .guide-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .guide-photo {
+      border-radius: var(--radius);
+      min-height: 480px;
+      background:
+        linear-gradient(180deg, transparent 55%, rgba(47, 59, 49, 0.45)),
+        url("https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?auto=format&fit=crop&w=1000&q=80") center/cover;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .guide-photo .caption {
+      position: absolute;
+      left: 1.25rem;
+      bottom: 1.25rem;
+      color: var(--white);
+    }
+
+    .guide-photo .caption strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.6rem;
+    }
+
+    .pill-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.9rem;
+      margin-top: 1.75rem;
+    }
+
+    .pill {
+      background: var(--section);
+      border-radius: 16px;
+      padding: 1.1rem 1.2rem;
+      border: 1px solid var(--border);
+    }
+
+    .pill strong {
+      display: block;
+      color: var(--heading);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .pill span { font-size: 0.88rem; }
+
+    /* Eight limbs */
+    .limbs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .limb-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.4rem 1.2rem;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .limb-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow);
+    }
+
+    .limb-card .index {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(109, 138, 92, 0.12);
+      color: var(--primary-dark);
+      display: grid;
+      place-items: center;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 0.9rem;
+    }
+
+    .limb-card h3 { margin-bottom: 0.45rem; font-size: 1.35rem; }
+    .limb-card p { font-size: 0.9rem; }
+
+    /* Practice paths */
+    .paths-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .path-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .path-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+
+    .path-media {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .path-1 { background-image: linear-gradient(rgba(109,138,92,.2), rgba(109,138,92,.2)), url("https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?auto=format&fit=crop&w=800&q=80"); }
+    .path-2 { background-image: linear-gradient(rgba(181,122,75,.2), rgba(181,122,75,.2)), url("https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80"); }
+    .path-3 { background-image: linear-gradient(rgba(47,59,49,.25), rgba(47,59,49,.25)), url("https://images.unsplash.com/photo-1545389336-cf090694435e?auto=format&fit=crop&w=800&q=80"); }
+
+    .path-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .path-body h3 { margin-bottom: 0.6rem; }
+    .path-body p { font-size: 0.95rem; margin-bottom: 1.25rem; flex: 1; }
+    .path-body a {
+      color: var(--primary-dark);
+      font-weight: 500;
+      font-size: 0.92rem;
+    }
+
+    .path-body a:hover { color: var(--accent); }
+
+    /* Why choose */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+    }
+
+    .why-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.6rem 1.4rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .why-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .why-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(109, 138, 92, 0.12);
+      color: var(--primary-dark);
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .why-card h3 { margin-bottom: 0.5rem; font-size: 1.3rem; }
+    .why-card p { font-size: 0.92rem; }
+
+    /* YouTube */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .video-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    }
+
+    .video-embed {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #1a221c;
+    }
+
+    .video-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-body { padding: 1.25rem 1.35rem 1.5rem; }
+    .video-body h3 { margin-bottom: 0.45rem; font-size: 1.3rem; }
+    .video-body p { font-size: 0.9rem; margin-bottom: 0.9rem; }
+    .video-body a {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .center-cta {
+      text-align: center;
+      margin-top: 2.25rem;
+    }
+
+    /* Instagram */
+    .ig-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .ig-item {
+      aspect-ratio: 1;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      display: block;
+      transition: transform var(--transition);
+    }
+
+    .ig-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(47, 59, 49, 0.55));
+      opacity: 0.85;
+      transition: opacity var(--transition);
+    }
+
+    .ig-item:hover { transform: scale(1.02); }
+    .ig-item:hover::after { opacity: 1; }
+
+    .ig-item span {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      z-index: 1;
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .ig-1 { background-image: url("https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=700&q=80"); }
+    .ig-2 { background-image: url("https://images.unsplash.com/photo-1575052814086-f38513c0c7e8?auto=format&fit=crop&w=700&q=80"); }
+    .ig-3 { background-image: url("https://images.unsplash.com/photo-1552196563-55cd4e45efb3?auto=format&fit=crop&w=700&q=80"); }
+    .ig-4 { background-image: url("https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?auto=format&fit=crop&w=700&q=80"); }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .testimonial {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem 1.5rem;
+    }
+
+    .stars {
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial p {
+      font-size: 1rem;
+      margin-bottom: 1.4rem;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.25rem;
+      line-height: 1.45;
+      color: var(--heading);
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(109, 138, 92, 0.18);
+      color: var(--primary-dark);
+      display: grid;
+      place-items: center;
+      font-weight: 600;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.2rem;
+    }
+
+    .person strong {
+      display: block;
+      color: var(--heading);
+      font-weight: 500;
+    }
+
+    .person span { font-size: 0.85rem; }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 1.15rem 1.35rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      color: var(--heading);
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .faq-q .icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(109, 138, 92, 0.12);
+      color: var(--primary-dark);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      transition: transform var(--transition), background var(--transition);
+    }
+
+    .faq-item.is-open .faq-q .icon {
+      transform: rotate(45deg);
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 1.35rem;
+    }
+
+    .faq-item.is-open .faq-a {
+      max-height: 220px;
+      padding: 0 1.35rem 1.25rem;
+    }
+
+    .faq-a p { font-size: 0.95rem; }
+
+    /* CTA band */
+    .cta-band {
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.12), transparent 40%),
+        linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: clamp(2.5rem, 5vw, 3.5rem);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-band h2 { color: var(--white); }
+    .cta-band p {
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 34rem;
+      margin: 0.5rem auto 0;
+    }
+
+    .cta-band .btn-group { justify-content: center; }
+
+    /* Footer */
+    .site-footer {
+      background: var(--heading);
+      color: rgba(255, 255, 255, 0.78);
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand .logo { color: var(--white); margin-bottom: 0.9rem; display: inline-block; }
+    .footer-brand p { max-width: 22rem; font-size: 0.95rem; }
+
+    .footer-col h4 {
+      color: var(--white);
+      font-size: 1.15rem;
+      margin-bottom: 1rem;
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    .footer-col a {
+      display: block;
+      margin-bottom: 0.55rem;
+      font-size: 0.92rem;
+      transition: color var(--transition);
+    }
+
+    .footer-col a:hover { color: #c8d9bc; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+    }
+
+    .socials {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .socials a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      display: grid;
+      place-items: center;
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .socials a:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(24px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .journey-grid,
+      .guide-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .limbs-grid,
+      .why-grid,
+      .paths-grid,
+      .video-grid,
+      .testimonials-grid,
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .ig-grid { grid-template-columns: 1fr 1fr; }
+      .hero-visual, .journey-panel, .guide-photo { min-height: 360px; }
+      .nav-cta { display: none; }
+    }
+
+    @media (max-width: 760px) {
+      .menu-toggle { display: inline-flex; }
+
+      .nav {
+        position: fixed;
+        top: var(--header-h);
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem 1.25rem 1.25rem;
+        gap: 0;
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform var(--transition), opacity var(--transition);
+      }
+
+      .nav.is-open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav a {
+        padding: 0.9rem 0.25rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .stats-row,
+      .feature-grid,
+      .pill-row,
+      .limbs-grid,
+      .why-grid,
+      .paths-grid,
+      .video-grid,
+      .testimonials-grid,
+      .footer-grid,
+      .ig-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { min-height: auto; padding-bottom: 3rem; }
+      .btn-group { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#home" class="logo">Manas <span>Yoga</span> Routine</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="mainNav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#videos">YouTube</a>
+        <a href="#instagram">Instagram</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn btn-primary nav-cta">Join Free Class</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Ancient Wisdom · Modern Living</p>
+          <h1>Return To Balance.<br />Return To Yourself.</h1>
+          <p class="lead">
+            Discover authentic yoga through simple, practical routines that fit everyday life —
+            building strength, clarity, and inner peace with Manas Yoga Routine.
+          </p>
+          <div class="btn-group">
+            <a href="#contact" class="btn btn-primary">Join Free Community</a>
+            <a href="#videos" class="btn btn-outline">Watch On YouTube</a>
+          </div>
+          <div class="stats-row">
+            <div class="stat"><strong>10+</strong><span>Years Of Practice</span></div>
+            <div class="stat"><strong>500+</strong><span>Yoga Videos</span></div>
+            <div class="stat"><strong>8</strong><span>Limbs Of Yoga</span></div>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="hero-badge">
+            <strong>100% Traditional</strong>
+            <span>Beginner-friendly practice rooted in authentic yoga.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="about">
+      <div class="container journey-grid">
+        <div class="journey-panel reveal" aria-hidden="true"></div>
+        <div class="reveal">
+          <p class="eyebrow">Our Journey</p>
+          <h2>Sharing Authentic Yoga For Everyday Life</h2>
+          <p class="lead">
+            Manas Yoga Routine was created with one mission — make authentic yoga easy to understand
+            and easy to practice. Through simple guidance, we help people integrate yoga naturally
+            into daily living.
+          </p>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <div class="num">10+</div>
+              <h3>Years of Practice</h3>
+              <p>Dedicated to learning and sharing authentic yoga.</p>
+            </article>
+            <article class="feature-card">
+              <div class="num">500+</div>
+              <h3>YouTube Videos</h3>
+              <p>Free sessions, breathing practices, and guidance.</p>
+            </article>
+            <article class="feature-card">
+              <div class="num">8</div>
+              <h3>Limbs of Yoga</h3>
+              <p>Teaching yoga beyond physical postures alone.</p>
+            </article>
+            <article class="feature-card">
+              <div class="num">100%</div>
+              <h3>Beginner Friendly</h3>
+              <p>Simple lessons designed for every level.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="guide">
+      <div class="container guide-grid">
+        <div class="guide-photo reveal">
+          <div class="caption">
+            <strong>Your Guide</strong>
+            <span>Manas Yoga Routine</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <p class="eyebrow">Meet Your Guide</p>
+          <h2>A Journey Rooted In Authentic Yoga</h2>
+          <p class="lead" style="margin-bottom: 1rem;">
+            For years, our teacher has practiced and shared authentic yoga in a way that feels
+            simple, practical, and approachable — helping people experience yoga as a complete path
+            toward balance and well-being, not just exercise.
+          </p>
+          <p class="lead">
+            Inspired by timeless yogic wisdom, Manas Yoga Routine introduces foundational practices
+            step by step so ancient teachings feel naturally usable in modern life.
+          </p>
+          <div class="pill-row">
+            <div class="pill"><strong>Traditional Yoga</strong><span>Rooted in authentic principles.</span></div>
+            <div class="pill"><strong>10+ Years</strong><span>Dedicated practice and teaching.</span></div>
+            <div class="pill"><strong>Beginner Friendly</strong><span>Clear guidance for all levels.</span></div>
+            <div class="pill"><strong>Holistic Wellness</strong><span>Mind, body, and inner peace.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="limbs">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">The Foundation of Authentic Yoga</p>
+          <h2>The Eight Limbs of Yoga</h2>
+          <p class="lead">
+            Yoga is far more than postures. Explore each limb in a practical, approachable way
+            as you build a lasting practice with Manas Yoga Routine.
+          </p>
+        </div>
+        <div class="limbs-grid">
+          <article class="limb-card reveal"><div class="index">1</div><h3>Yama</h3><p>Ethical principles that guide how we interact with the world.</p></article>
+          <article class="limb-card reveal"><div class="index">2</div><h3>Niyama</h3><p>Personal disciplines that nurture growth and self-awareness.</p></article>
+          <article class="limb-card reveal"><div class="index">3</div><h3>Asana</h3><p>Physical postures that develop strength, flexibility, and steadiness.</p></article>
+          <article class="limb-card reveal"><div class="index">4</div><h3>Pranayama</h3><p>Breathing practices that calm the mind and improve energy flow.</p></article>
+          <article class="limb-card reveal"><div class="index">5</div><h3>Pratyahara</h3><p>Gently withdrawing the senses from external distraction.</p></article>
+          <article class="limb-card reveal"><div class="index">6</div><h3>Dharana</h3><p>Developing concentration toward a single point of focus.</p></article>
+          <article class="limb-card reveal"><div class="index">7</div><h3>Dhyana</h3><p>A deeper meditative state bringing clarity and calm.</p></article>
+          <article class="limb-card reveal"><div class="index">8</div><h3>Samadhi</h3><p>Unity, peace, and spiritual fulfillment in yoga.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="programs">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Explore Your Journey</p>
+          <h2>Ways To Practice</h2>
+          <p class="lead">
+            Whether you are beginning or deepening your practice, choose a path that fits your
+            lifestyle and goals.
+          </p>
+        </div>
+        <div class="paths-grid">
+          <article class="path-card reveal">
+            <div class="path-media path-1"></div>
+            <div class="path-body">
+              <h3>Beginner Yoga</h3>
+              <p>Gentle movements, breathing techniques, and easy-to-follow sessions for complete beginners.</p>
+              <a href="#videos">Learn More →</a>
+            </div>
+          </article>
+          <article class="path-card reveal">
+            <div class="path-media path-2"></div>
+            <div class="path-body">
+              <h3>Pranayama & Meditation</h3>
+              <p>Breathing and meditation practices that improve focus, reduce stress, and create calm.</p>
+              <a href="#videos">Learn More →</a>
+            </div>
+          </article>
+          <article class="path-card reveal">
+            <div class="path-media path-3"></div>
+            <div class="path-body">
+              <h3>Yoga As A Lifestyle</h3>
+              <p>Discover how yogic principles can become part of everyday life beyond the mat.</p>
+              <a href="#contact">Learn More →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="why">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Why Choose Us</p>
+          <h2>A Different Way To Experience Yoga</h2>
+          <p class="lead">
+            Yoga taught as a complete way of living — simple, practical, and rooted in authentic
+            wisdom.
+          </p>
+        </div>
+        <div class="why-grid">
+          <article class="why-card reveal">
+            <div class="why-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c2.5 3 4 5.5 4 8a4 4 0 1 1-8 0c0-2.5 1.5-5 4-8z"/><path d="M8 19c1.2-1.5 2.5-2.2 4-2.2S14.8 17.5 16 19"/></svg>
+            </div>
+            <h3>Authentic Yoga</h3>
+            <p>Learn from timeless teachings rather than trends or shortcuts.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="why-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M5 19c1.5-3.5 3.8-5 7-5s5.5 1.5 7 5"/></svg>
+            </div>
+            <h3>Beginner Friendly</h3>
+            <p>Clear explanations that help you build confidence from day one.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="why-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 1.5"/></svg>
+            </div>
+            <h3>Daily Practice</h3>
+            <p>Create sustainable habits that fit naturally into your routine.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="why-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
+            </div>
+            <h3>Holistic Wellness</h3>
+            <p>Support physical health, mental clarity, and emotional balance together.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="why-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V7l8-3 8 3v12"/><path d="M9 19v-6h6v6"/><path d="M4 10h16"/></svg>
+            </div>
+            <h3>Years of Experience</h3>
+            <p>Benefit from dedicated practice, learning, and sharing online.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="why-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+            </div>
+            <h3>Learn Anywhere</h3>
+            <p>Practice at home with accessible YouTube and Instagram guidance.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="videos">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Learn From Anywhere</p>
+          <h2>Explore Our YouTube Library</h2>
+          <p class="lead">
+            Yoga sessions, breathing techniques, and authentic teachings to help you build a
+            sustainable practice at your own pace.
+          </p>
+        </div>
+        <div class="video-grid">
+          <article class="video-card reveal">
+            <div class="video-embed">
+              <iframe
+                src="https://www.youtube.com/embed/v7AYKMP6rOE"
+                title="Morning Yoga Practice"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <div class="video-body">
+              <h3>Morning Yoga Practice</h3>
+              <p>Start your day with simple movements and mindful breathing.</p>
+              <a href="https://www.youtube.com" target="_blank" rel="noopener">Watch On YouTube →</a>
+            </div>
+          </article>
+          <article class="video-card reveal">
+            <div class="video-embed">
+              <iframe
+                src="https://www.youtube.com/embed/inpok4MKVLM"
+                title="Breathing and Meditation"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <div class="video-body">
+              <h3>Breathing & Meditation</h3>
+              <p>Calming pranayama and guided meditation for everyday life.</p>
+              <a href="https://www.youtube.com" target="_blank" rel="noopener">Watch On YouTube →</a>
+            </div>
+          </article>
+          <article class="video-card reveal">
+            <div class="video-embed">
+              <iframe
+                src="https://www.youtube.com/embed/4pLUleLdwY4"
+                title="Yoga Beyond Asanas"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <div class="video-body">
+              <h3>Yoga Beyond Asanas</h3>
+              <p>Understand the deeper philosophy of yoga through practical lessons.</p>
+              <a href="https://www.youtube.com" target="_blank" rel="noopener">Watch On YouTube →</a>
+            </div>
+          </article>
+        </div>
+        <div class="center-cta reveal">
+          <a href="https://www.youtube.com" class="btn btn-primary" target="_blank" rel="noopener">Visit Our YouTube Channel</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="instagram">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Follow Along</p>
+          <h2>Moments From Instagram</h2>
+          <p class="lead">
+            Daily inspiration, short practices, and behind-the-scenes glimpses from the Manas Yoga
+            Routine community.
+          </p>
+        </div>
+        <div class="ig-grid">
+          <a class="ig-item ig-1 reveal" href="https://www.instagram.com" target="_blank" rel="noopener"><span>Morning flow</span></a>
+          <a class="ig-item ig-2 reveal" href="https://www.instagram.com" target="_blank" rel="noopener"><span>Breath work</span></a>
+          <a class="ig-item ig-3 reveal" href="https://www.instagram.com" target="_blank" rel="noopener"><span>Mindful pause</span></a>
+          <a class="ig-item ig-4 reveal" href="https://www.instagram.com" target="_blank" rel="noopener"><span>Practice notes</span></a>
+        </div>
+        <div class="center-cta reveal">
+          <a href="https://www.instagram.com" class="btn btn-outline" target="_blank" rel="noopener">Follow On Instagram</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="testimonials">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Student Experiences</p>
+          <h2>What Students Say</h2>
+          <p class="lead">
+            People from different walks of life have discovered a calmer mind and a more meaningful
+            practice through Manas Yoga Routine.
+          </p>
+        </div>
+        <div class="testimonials-grid">
+          <article class="testimonial reveal">
+            <div class="stars">★★★★★</div>
+            <p>“The guidance feels simple and practical. I never imagined I could build a daily practice so naturally.”</p>
+            <div class="person">
+              <div class="avatar">A</div>
+              <div><strong>Anjali Sharma</strong><span>Beginner Student</span></div>
+            </div>
+          </article>
+          <article class="testimonial reveal">
+            <div class="stars">★★★★★</div>
+            <p>“Breathing exercises and meditation sessions have helped me reduce stress and improve focus.”</p>
+            <div class="person">
+              <div class="avatar">R</div>
+              <div><strong>Rahul Verma</strong><span>Online Learner</span></div>
+            </div>
+          </article>
+          <article class="testimonial reveal">
+            <div class="stars">★★★★★</div>
+            <p>“I appreciate that the teachings go beyond physical exercise and into everyday living.”</p>
+            <div class="person">
+              <div class="avatar">S</div>
+              <div><strong>Sneha Kapoor</strong><span>YouTube Subscriber</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Frequently Asked Questions</p>
+          <h2>Everything You Need To Know</h2>
+          <p class="lead">If you are new to yoga, these answers will help you begin with confidence.</p>
+        </div>
+        <div class="faq-list reveal">
+          <div class="faq-item is-open">
+            <button class="faq-q" type="button">Do I need previous yoga experience?<span class="icon">+</span></button>
+            <div class="faq-a"><p>No. Classes and guidance are designed for complete beginners as well as those looking to deepen an existing practice.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">Can I practice yoga at home?<span class="icon">+</span></button>
+            <div class="faq-a"><p>Yes. Many sessions are suitable for home practice so you can learn comfortably at your own pace with minimal equipment.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">How often should I practice?<span class="icon">+</span></button>
+            <div class="faq-a"><p>Even 15–20 minutes of regular practice can make a meaningful difference. Consistency matters more than long sessions.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">What should I wear?<span class="icon">+</span></button>
+            <div class="faq-a"><p>Wear comfortable clothing that allows free movement. A yoga mat is helpful, but many beginner practices need no special equipment.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">How can I start with Manas Yoga Routine?<span class="icon">+</span></button>
+            <div class="faq-a"><p>Begin with our YouTube videos or Instagram practices, then reach out through the contact section for classes and personalized guidance.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container reveal">
+        <div class="cta-band">
+          <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Begin Today</p>
+          <h2>Ready To Return To Balance?</h2>
+          <p>Join the community, explore free practices, and start building a calm, consistent yoga routine.</p>
+          <div class="btn-group">
+            <a href="https://www.youtube.com" class="btn btn-light" target="_blank" rel="noopener">Watch Free Videos</a>
+            <a href="https://www.instagram.com" class="btn btn-outline" style="border-color:#fff;color:#fff;" target="_blank" rel="noopener">Follow On Instagram</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="logo">Manas <span>Yoga</span> Routine</a>
+          <p>Authentic yoga made simple — practical routines for strength, clarity, and inner peace in everyday life.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="#about">About</a>
+          <a href="#programs">Programs</a>
+          <a href="#limbs">Eight Limbs</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Practice</h4>
+          <a href="#videos">YouTube Library</a>
+          <a href="#instagram">Instagram</a>
+          <a href="#guide">Meet Your Guide</a>
+          <a href="#contact">Join Free Class</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="mailto:hello@manasyogaroutine.com">Email Us</a>
+          <div class="socials" style="margin-top: 1rem;">
+            <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.8 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Manas Yoga Routine. All rights reserved.</span>
+        <span>Ancient Wisdom · Modern Living</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var header = document.getElementById("siteHeader");
+      var toggle = document.getElementById("menuToggle");
+      var nav = document.getElementById("mainNav");
+      var year = document.getElementById("year");
+
+      if (year) year.textContent = new Date().getFullYear();
+
+      function onScroll() {
+        if (!header) return;
+        header.classList.toggle("is-scrolled", window.scrollY > 20);
+      }
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      if (toggle && nav) {
+        toggle.addEventListener("click", function () {
+          var open = nav.classList.toggle("is-open");
+          toggle.classList.toggle("is-open", open);
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+
+        nav.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            nav.classList.remove("is-open");
+            toggle.classList.remove("is-open");
+            toggle.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+
+      document.querySelectorAll(".faq-item").forEach(function (item) {
+        var btn = item.querySelector(".faq-q");
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var isOpen = item.classList.contains("is-open");
+          document.querySelectorAll(".faq-item").forEach(function (el) {
+            el.classList.remove("is-open");
+          });
+          if (!isOpen) item.classList.add("is-open");
+        });
+      });
+
+      if ("IntersectionObserver" in window) {
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+        );
+        document.querySelectorAll(".reveal").forEach(function (el) {
+          observer.observe(el);
+        });
+      } else {
+        document.querySelectorAll(".reveal").forEach(function (el) {
+          el.classList.add("is-visible");
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
