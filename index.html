@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manas Yoga Routine</title>
+  <title>Manas – A Journey Within | Manas Yoga Routine</title>
   <link rel="icon" href="https://cdn.jsdelivr.net/gh/Ranjan-Kashyap/manasyogaroutine@main/assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Ranjan-Kashyap/manasyogaroutine@main/assets/favicon.png" />
   <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/Ranjan-Kashyap/manasyogaroutine@main/assets/favicon.png" />
@@ -24,7 +24,7 @@
       --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
       --radius: 24px;
       --container: 1280px;
-      --header-h: 78px;
+      --header-h: 88px;
       --transition: 0.35s ease;
     }
 
@@ -57,14 +57,22 @@
       color: var(--text);
       line-height: 1.7;
       font-weight: 400;
-      width: 100vw;
-      max-width: 100vw;
-      margin-left: calc(50% - 50vw);
-      margin-right: calc(50% - 50vw);
+      width: 100%;
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
       margin-bottom: 0;
       padding-bottom: 0;
       position: relative;
       overflow-x: clip;
+    }
+
+    /* Full-bleed backgrounds stay edge-to-edge; content stays inset via .container */
+    .site-header,
+    .hero,
+    .section,
+    .site-footer {
+      width: 100%;
     }
 
     img { max-width: 100%; display: block; }
@@ -73,8 +81,10 @@
     button { font: inherit; cursor: pointer; border: none; background: none; }
 
     .container {
-      width: min(100% - 2.5rem, var(--container));
+      width: min(100%, var(--container));
       margin-inline: auto;
+      padding-inline: clamp(1.5rem, 5vw, 3rem);
+      box-sizing: border-box;
     }
 
     .eyebrow {
@@ -87,6 +97,15 @@
       margin-bottom: 0.85rem;
     }
 
+    .eyebrow--lg {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      letter-spacing: 0.14em;
+      text-transform: none;
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
     h1, h2, h3, h4 {
       font-family: "Cormorant Garamond", serif;
       color: var(--heading);
@@ -95,7 +114,17 @@
     }
 
     h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); }
+    h1.hero-title { font-size: clamp(2.8rem, 6.5vw, 4.8rem); margin-bottom: 0.35rem; }
+    .hero-sub {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      color: var(--primary-dark);
+      font-weight: 500;
+      margin-bottom: 1rem;
+      line-height: 1.25;
+    }
     h2 { font-size: clamp(2rem, 4vw, 3.1rem); margin-bottom: 1rem; }
+    h2.section-title-lg { font-size: clamp(2.25rem, 4.5vw, 3.45rem); }
     h3 { font-size: clamp(1.35rem, 2.2vw, 1.7rem); }
 
     .lead {
@@ -111,6 +140,12 @@
 
     .section--alt { background: var(--section); }
     .section--white { background: var(--white); }
+    .section--green {
+      background:
+        radial-gradient(circle at top left, rgba(109, 138, 92, 0.18), transparent 45%),
+        radial-gradient(circle at bottom right, rgba(109, 138, 92, 0.1), transparent 40%),
+        #E7EFE3;
+    }
 
     .section-head {
       text-align: center;
@@ -200,9 +235,9 @@
 
     .logo img {
       display: block;
-      height: 46px;
+      height: 62px;
       width: auto;
-      max-width: min(280px, 58vw);
+      max-width: min(62px, 22vw);
     }
 
     .nav {
@@ -485,8 +520,55 @@
     /* Practice paths */
     .paths-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.25rem;
+    }
+
+    .sessions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .session-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    }
+
+    .session-card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .session-card ul {
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .session-card li {
+      position: relative;
+      padding-left: 1.2rem;
+      font-size: 0.95rem;
+    }
+
+    .session-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .session-note {
+      margin-top: 1rem;
+      font-size: 0.92rem;
+      color: var(--text);
     }
 
     .path-card {
@@ -809,8 +891,8 @@
     }
 
     .footer-brand .logo img {
-      height: 42px;
-      max-width: min(260px, 80vw);
+      height: 92px;
+      max-width: min(92px, 34vw);
     }
 
     .footer-brand p { max-width: 22rem; font-size: 0.95rem; }
@@ -890,6 +972,7 @@
       .paths-grid,
       .video-grid,
       .testimonials-grid,
+      .sessions-grid,
       .footer-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -938,6 +1021,7 @@
       .paths-grid,
       .video-grid,
       .testimonials-grid,
+      .sessions-grid,
       .footer-grid,
       .ig-grid {
         grid-template-columns: 1fr;
@@ -946,8 +1030,8 @@
       .hero { min-height: auto; padding-bottom: 3rem; }
       .btn-group { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; }
-      .logo img { height: 38px; }
-      .footer-brand .logo img { height: 36px; }
+      .logo img { height: 52px; max-width: 52px; }
+      .footer-brand .logo img { height: 80px; max-width: 80px; }
     }
   </style>
 </head>
@@ -956,7 +1040,7 @@
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a href="#home" class="logo" aria-label="Manas Yoga Routine">
-        <img src="https://cdn.jsdelivr.net/gh/Ranjan-Kashyap/manasyogaroutine@main/assets/logo.png" alt="Manas Yoga Routine" width="280" height="53" />
+        <img src="https://cdn.jsdelivr.net/gh/Ranjan-Kashyap/manasyogaroutine@main/assets/logo-badge.png?v=1" alt="Manas Yoga Routine" width="62" height="62" />
       </a>
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -964,33 +1048,39 @@
       <nav class="nav" id="mainNav">
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#programs">Programs</a>
+        <a href="#programs">Services</a>
         <a href="#videos">YouTube</a>
-        <a href="#instagram">Instagram</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact" class="btn btn-primary nav-cta">Join Free Class</a>
+        <a href="#contact" class="btn btn-primary nav-cta">Book a Session</a>
       </nav>
     </div>
   </header>
 
   <main>
+    
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Ancient Wisdom · Modern Living</p>
-          <h1>Return To Balance.<br />Return To Yourself.</h1>
+          <h1 class="hero-title">Manas – A Journey Within</h1>
+          <p class="hero-sub">Find Joy Within</p>
+          <p class="lead" style="margin-bottom: 1rem;">
+            Manas takes you on a journey of the self — an approach that turns your attention
+            inward when the outside world no longer satisfies you, or when you simply want to deepen
+            your joyful experience and search for life's deeper meaning.
+          </p>
           <p class="lead">
-            Discover authentic yoga through simple, practical routines that fit everyday life —
-            building strength, clarity, and inner peace with Manas Yoga Routine.
+            Manas works with women and children only, helping them design yoga routines according to
+            their needs. They are the ones who need support for their fitness journey — and often
+            neglect their health in a busy lifestyle.
           </p>
           <div class="btn-group">
-            <a href="https://www.youtube.com/@YogaBacktotheBasics" class="btn btn-primary">Join Free Community</a>
+            <a href="#contact" class="btn btn-primary">Book a Session</a>
             <a href="https://www.youtube.com/@YogaBacktotheBasics" class="btn btn-outline" target="_blank" rel="noopener">Watch On YouTube</a>
           </div>
           <div class="stats-row">
-            <div class="stat"><strong>10+</strong><span>Years Of Practice</span></div>
-            <div class="stat"><strong>500+</strong><span>Yoga Videos</span></div>
-            <div class="stat"><strong>8</strong><span>Limbs Of Yoga</span></div>
+            <div class="stat"><strong>Women</strong><span>Centric Practice</span></div>
+            <div class="stat"><strong>Kids</strong><span>Supports Children's Fitness</span></div>
+            <div class="stat"><strong>1:1</strong><span>Guided Sessions</span></div>
           </div>
         </div>
         <div class="hero-visual reveal"></div>
@@ -1001,33 +1091,41 @@
       <div class="container journey-grid">
         <div class="journey-panel reveal" aria-hidden="true"></div>
         <div class="reveal">
-          <p class="eyebrow">Our Journey</p>
-          <h2>Sharing Authentic Yoga For Everyday Life</h2>
+          <p class="eyebrow">Introduction</p>
+          <h2>It's Time To Step Into Yoga And Change Your Life 360 Degrees</h2>
+          <p class="lead" style="margin-bottom: 1rem;">
+            Yoga will be our main tool on this spiritual path. Today it is often misunderstood and
+            misinterpreted on social media. Here, you will encounter it in its authentic form, as
+            taught by Maharishi Patanjali, and learn the true aim and steps of yogic philosophy.
+          </p>
+          <p class="lead" style="margin-bottom: 1rem;">
+            You can start your spiritual journey step by step with Manas. We will guide you while
+            teaching you a yogic lifestyle — in addition to asana and pranayama, mudras and bandhas.
+          </p>
           <p class="lead">
-            Manas Yoga Routine was created with one mission — make authentic yoga easy to understand
-            and easy to practice. Through simple guidance, we help people integrate yoga naturally
-            into daily living.
+            Blending yoga and life coaching to help people in modern life solve real problems is
+            another service you will find here at Manas.
           </p>
           <div class="feature-grid">
             <article class="feature-card">
-              <div class="num">10+</div>
-              <h3>Years of Practice</h3>
-              <p>Dedicated to learning and sharing authentic yoga.</p>
+              <div class="num">01</div>
+              <h3>Start Your Spiritual Journey Step By Step</h3>
+              <p>Turn your attention inward to find deeper meaning and answers to life's unanswered questions.</p>
             </article>
             <article class="feature-card">
-              <div class="num">500+</div>
-              <h3>YouTube Videos</h3>
-              <p>Free sessions, breathing practices, and guidance.</p>
+              <div class="num">02</div>
+              <h3>Customize Your Yoga Routine</h3>
+              <p>Learn yoga as taught by Maharishi Patanjali, beyond social media trends.</p>
             </article>
             <article class="feature-card">
-              <div class="num">8</div>
-              <h3>Limbs of Yoga</h3>
-              <p>Teaching yoga beyond physical postures alone.</p>
+              <div class="num">03</div>
+              <h3>Yoga Consultation</h3>
+              <p>One-on-one guidance to correct your practice and avoid common mistakes.</p>
             </article>
             <article class="feature-card">
-              <div class="num">100%</div>
-              <h3>Beginner Friendly</h3>
-              <p>Simple lessons designed for every level.</p>
+              <div class="num">04</div>
+              <h3>Life Coaching</h3>
+              <p>A unique blend of yoga and life coaching.</p>
             </article>
           </div>
         </div>
@@ -1038,159 +1136,233 @@
       <div class="container guide-grid">
         <div class="guide-photo reveal">
           <div class="caption">
-            <strong>Your Guide</strong>
-            <span>Manas Yoga Routine</span>
+            <strong>Kesha</strong>
+            <span>Your Guide And Spiritual Path Finder</span>
           </div>
         </div>
         <div class="reveal">
-          <p class="eyebrow">Meet Your Guide</p>
-          <h2>A Journey Rooted In Authentic Yoga</h2>
+          <p class="eyebrow">Your Guide And Spiritual Path Finder</p>
+          <h2>Meet Kesha – Your Guide On This Journey</h2>
           <p class="lead" style="margin-bottom: 1rem;">
-            For years, our teacher has practiced and shared authentic yoga in a way that feels
-            simple, practical, and approachable — helping people experience yoga as a complete path
-            toward balance and well-being, not just exercise.
+            Kesha is a yoga coach who has practiced this ancient science for the past 15 years and
+            will guide you on this journey. Her long experience — both in her own practice and in
+            working with people — has helped her design a unique path to learning yoga in a very
+            different way.
+          </p>
+          <p class="lead" style="margin-bottom: 1rem;">
+            “After realizing the miraculous results of this ancient wisdom, I felt that everyone must
+            learn it. It can help you live a healthy and happy long life, mostly free of disease
+            and unwanted health issues.”
           </p>
           <p class="lead">
-            Inspired by timeless yogic wisdom, Manas Yoga Routine introduces foundational practices
-            step by step so ancient teachings feel naturally usable in modern life.
+            She saw many people practicing yoga incorrectly — misunderstanding techniques and
+            practicing in ways that waste time and energy, and sometimes even pose health risks. So she
+            decided to help through yoga consultation: teaching, checking, and correcting the
+            practices you are doing, and guiding you further according to her wisdom and experience.
           </p>
           <div class="pill-row">
-            <div class="pill"><strong>Traditional Yoga</strong><span>Rooted in authentic principles.</span></div>
-            <div class="pill"><strong>10+ Years</strong><span>Dedicated practice and teaching.</span></div>
-            <div class="pill"><strong>Beginner Friendly</strong><span>Clear guidance for all levels.</span></div>
-            <div class="pill"><strong>Holistic Wellness</strong><span>Mind, body, and inner peace.</span></div>
+            <div class="pill"><strong>15+ Years</strong><span>Dedicated yoga practice and teaching.</span></div>
+            <div class="pill"><strong>Spiritual Guide</strong><span>Help you shed your old self.</span></div>
+            <div class="pill"><strong>Consultation</strong><span>Check your practices and sequence your one-hour routine.</span></div>
+            <div class="pill"><strong>Life Coaching</strong><span>Support for modern life challenges.</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt" id="limbs">
+    <section class="section section--alt" id="programs">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">The Foundation of Authentic Yoga</p>
-          <h2>The Eight Limbs of Yoga</h2>
+          <p class="eyebrow eyebrow--lg">Services We Provide</p>
+          <h2 class="section-title-lg">How Manas Can Guide You</h2>
           <p class="lead">
-            Yoga is far more than postures. Explore each limb in a practical, approachable way
-            as you build a lasting practice with Manas Yoga Routine.
-          </p>
-        </div>
-        <div class="limbs-grid">
-          <article class="limb-card reveal"><div class="index">1</div><h3>Yama</h3><p>Ethical principles that guide how we interact with the world.</p></article>
-          <article class="limb-card reveal"><div class="index">2</div><h3>Niyama</h3><p>Personal disciplines that nurture growth and self-awareness.</p></article>
-          <article class="limb-card reveal"><div class="index">3</div><h3>Asana</h3><p>Physical postures that develop strength, flexibility, and steadiness.</p></article>
-          <article class="limb-card reveal"><div class="index">4</div><h3>Pranayama</h3><p>Breathing practices that calm the mind and improve energy flow.</p></article>
-          <article class="limb-card reveal"><div class="index">5</div><h3>Pratyahara</h3><p>Gently withdrawing the senses from external distraction.</p></article>
-          <article class="limb-card reveal"><div class="index">6</div><h3>Dharana</h3><p>Developing concentration toward a single point of focus.</p></article>
-          <article class="limb-card reveal"><div class="index">7</div><h3>Dhyana</h3><p>A deeper meditative state bringing clarity and calm.</p></article>
-          <article class="limb-card reveal"><div class="index">8</div><h3>Samadhi</h3><p>Unity, peace, and spiritual fulfillment in yoga.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--white" id="programs">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Explore Your Journey</p>
-          <h2>Ways To Practice</h2>
-          <p class="lead">
-            Whether you are beginning or deepening your practice, choose a path that fits your
-            lifestyle and goals.
+            Whether you are stepping into spirituality, seeking health guidance, or looking for
+            personalized support, choose the path that fits your needs.
           </p>
         </div>
         <div class="paths-grid">
           <article class="path-card reveal">
             <div class="path-media path-1"></div>
             <div class="path-body">
-              <h3>Beginner Yoga</h3>
-              <p>Gentle movements, breathing techniques, and easy-to-follow sessions for complete beginners.</p>
-              <a href="#videos">Learn More →</a>
+              <h3>Begin Your Spiritual Journey</h3>
+              <p>If you are done with the outside world, it's time to return home — return to yourself. You will be guided in a scientific yogic way.</p>
+              <a href="#contact">Book a Session →</a>
             </div>
           </article>
           <article class="path-card reveal">
             <div class="path-media path-2"></div>
             <div class="path-body">
-              <h3>Pranayama & Meditation</h3>
-              <p>Breathing and meditation practices that improve focus, reduce stress, and create calm.</p>
-              <a href="#videos">Learn More →</a>
+              <h3>Yoga Consultation</h3>
+              <p>One-on-one sessions to address your present health concerns through a yogic approach.</p>
+              <a href="#contact">Book a Session →</a>
             </div>
           </article>
           <article class="path-card reveal">
             <div class="path-media path-3"></div>
             <div class="path-body">
-              <h3>Yoga As A Lifestyle</h3>
-              <p>Discover how yogic principles can become part of everyday life beyond the mat.</p>
-              <a href="#contact">Learn More →</a>
+              <h3>Custom Yoga Routine</h3>
+              <p>Get a personalized yoga routine designed for your body, goals, and daily life.</p>
+              <a href="#contact">Book a Session →</a>
+            </div>
+          </article>
+          <article class="path-card reveal">
+            <div class="path-media path-1"></div>
+            <div class="path-body">
+              <h3>Life Coaching Sessions</h3>
+              <p>Support to resolve lingering challenges and move forward with clarity and confidence.</p>
+              <a href="#contact">Book a Session →</a>
+            </div>
+          </article>
+          <article class="path-card reveal">
+            <div class="path-media path-2"></div>
+            <div class="path-body">
+              <h3>Yoga + Life Coaching</h3>
+              <p>A unique blend of yoga and life coaching to help people in modern life solve real problems.</p>
+              <a href="#contact">Book a Session →</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt" id="why">
+    <section class="section section--white" id="sessions">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Why Choose Us</p>
-          <h2>A Different Way To Experience Yoga</h2>
+          <p class="eyebrow">Manas · Book a Session</p>
+          <h2>One-on-One & Group Sessions</h2>
           <p class="lead">
-            Yoga taught as a complete way of living — simple, practical, and rooted in authentic
-            wisdom.
+            Choose the format that works best for you — personalized guidance or affordable
+            group sessions.
+          </p>
+        </div>
+        <div class="sessions-grid reveal">
+          <article class="session-card">
+            <h3>One-on-One Sessions</h3>
+            <ul>
+              <li>Spiritual guidance</li>
+              <li>Design your yoga routine</li>
+              <li>Life coaching to help resolve ongoing challenges</li>
+              <li>Clear your doubts regarding posture, correct pranayama techniques, and more</li>
+            </ul>
+            <p class="session-note">Personalized attention tailored to your unique journey and needs.</p>
+          </article>
+          <article class="session-card">
+            <h3>Group Sessions</h3>
+            <ul>
+              <li>Affordable and easy on your pocket</li>
+              <li>Ideal for beginners</li>
+              <li>Problem-specific sessions</li>
+            </ul>
+            <p class="session-note">Including support for concerns such as blood sugar, thyroid, blood pressure, obesity, post-pregnancy recovery, and more.</p>
+          </article>
+        </div>
+        <div class="center-cta reveal">
+          <a href="#contact" class="btn btn-primary">Book a Session</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="save-time">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Expert Support</p>
+          <h2>Save Your Time</h2>
+          <p class="lead">
+            Stop wasting one hour every day. Take the help of an expert to design your daily yoga
+            routine — with ailment-specific asanas and pranayama.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="num">01</div>
+            <h3>Clear Doubts In Three Sessions</h3>
+            <p>Get clear answers and corrections so your practice becomes confident and effective.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="num">02</div>
+            <h3>Improve Your Posture</h3>
+            <p>Learn correct alignment so every asana supports your body safely.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="num">03</div>
+            <h3>Correct Your Pranayama Techniques</h3>
+            <p>Refine your breathing practices for calm, focus, and better energy flow.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="num">04</div>
+            <h3>Learn Bandhas, Mudras & Kriyas</h3>
+            <p>Go beyond asanas and build a complete yogic practice with deeper techniques.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--green" id="why">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow eyebrow--lg">Why Manas?</p>
+          <h2 class="section-title-lg">Guidance That Can Change Your Life Forever</h2>
+          <p class="lead">
+            You will be able to see clearly how you can use your fitness time in yoga to get
+            maximum benefits. Expert guidance makes it possible — and you will find it here through
+            one-on-one sessions.
           </p>
         </div>
         <div class="why-grid">
           <article class="why-card reveal">
             <div class="why-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c2.5 3 4 5.5 4 8a4 4 0 1 1-8 0c0-2.5 1.5-5 4-8z"/><path d="M8 19c1.2-1.5 2.5-2.2 4-2.2S14.8 17.5 16 19"/></svg>
-            </div>
-            <h3>Authentic Yoga</h3>
-            <p>Learn from timeless teachings rather than trends or shortcuts.</p>
-          </article>
-          <article class="why-card reveal">
-            <div class="why-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M5 19c1.5-3.5 3.8-5 7-5s5.5 1.5 7 5"/></svg>
-            </div>
-            <h3>Beginner Friendly</h3>
-            <p>Clear explanations that help you build confidence from day one.</p>
-          </article>
-          <article class="why-card reveal">
-            <div class="why-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 1.5"/></svg>
             </div>
-            <h3>Daily Practice</h3>
-            <p>Create sustainable habits that fit naturally into your routine.</p>
-          </article>
-          <article class="why-card reveal">
-            <div class="why-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
-            </div>
-            <h3>Holistic Wellness</h3>
-            <p>Support physical health, mental clarity, and emotional balance together.</p>
+            <h3>Save Your Time And Energy</h3>
+            <p>Learn correctly from the start so your practice hours are never wasted.</p>
           </article>
           <article class="why-card reveal">
             <div class="why-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V7l8-3 8 3v12"/><path d="M9 19v-6h6v6"/><path d="M4 10h16"/></svg>
             </div>
-            <h3>Years of Experience</h3>
-            <p>Benefit from dedicated practice, learning, and sharing online.</p>
+            <h3>Correct Your Sequence</h3>
+            <p>Get the right order of practices for safer, more effective sessions.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="why-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c2.5 3 4 5.5 4 8a4 4 0 1 1-8 0c0-2.5 1.5-5 4-8z"/><path d="M8 19c1.2-1.5 2.5-2.2 4-2.2S14.8 17.5 16 19"/></svg>
+            </div>
+            <h3>30 Minutes – Full Benefits</h3>
+            <p>A well-designed short routine can deliver complete yogic benefits.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="why-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M5 19c1.5-3.5 3.8-5 7-5s5.5 1.5 7 5"/></svg>
+            </div>
+            <h3>Design Your Child's Yoga Routine</h3>
+            <p>Support your child's fitness with age-appropriate yogic guidance.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="why-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
+            </div>
+            <h3>Women Centric</h3>
+            <p>Designed for women — from homemakers to professionals.</p>
           </article>
           <article class="why-card reveal">
             <div class="why-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
             </div>
-            <h3>Learn Anywhere</h3>
-            <p>Practice at home with accessible YouTube and Instagram guidance.</p>
+            <h3>Customize Your Yoga Routine</h3>
+            <p>Build a personal practice that fits your body, lifestyle, and goals.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section--white" id="videos">
+    <section class="section section--alt" id="videos">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Learn From Anywhere</p>
+          <p class="eyebrow">Learn From Anywhere, Anytime</p>
           <h2>Explore Our YouTube Library</h2>
           <p class="lead">
-            Yoga sessions, breathing techniques, and authentic teachings to help you build a
-            sustainable practice at your own pace.
+            Free yoga sessions, breathing techniques, and teachings from Kesha — practice at your
+            own pace, from anywhere.
           </p>
         </div>
         <div class="video-grid">
@@ -1246,14 +1418,14 @@
       </div>
     </section>
 
-    <section class="section section--alt" id="instagram">
+    <section class="section section--white" id="instagram">
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Follow Along</p>
           <h2>Moments From Instagram</h2>
           <p class="lead">
-            Daily inspiration, short practices, and behind-the-scenes glimpses from the Manas Yoga
-            Routine community.
+            Follow along for daily inspiration, short practices, and free workshops and live
+            sessions announced from time to time.
           </p>
         </div>
         <div class="ig-grid">
@@ -1268,72 +1440,33 @@
       </div>
     </section>
 
-    <section class="section section--white" id="testimonials">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Student Experiences</p>
-          <h2>What Students Say</h2>
-          <p class="lead">
-            People from different walks of life have discovered a calmer mind and a more meaningful
-            practice through Manas Yoga Routine.
-          </p>
-        </div>
-        <div class="testimonials-grid">
-          <article class="testimonial reveal">
-            <div class="stars">★★★★★</div>
-            <p>“The guidance feels simple and practical. I never imagined I could build a daily practice so naturally.”</p>
-            <div class="person">
-              <div class="avatar">A</div>
-              <div><strong>Anjali Sharma</strong><span>Beginner Student</span></div>
-            </div>
-          </article>
-          <article class="testimonial reveal">
-            <div class="stars">★★★★★</div>
-            <p>“Breathing exercises and meditation sessions have helped me reduce stress and improve focus.”</p>
-            <div class="person">
-              <div class="avatar">R</div>
-              <div><strong>Rahul Verma</strong><span>Online Learner</span></div>
-            </div>
-          </article>
-          <article class="testimonial reveal">
-            <div class="stars">★★★★★</div>
-            <p>“I appreciate that the teachings go beyond physical exercise and into everyday living.”</p>
-            <div class="person">
-              <div class="avatar">S</div>
-              <div><strong>Sneha Kapoor</strong><span>YouTube Subscriber</span></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="section section--alt" id="faq">
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Frequently Asked Questions</p>
           <h2>Everything You Need To Know</h2>
-          <p class="lead">If you are new to yoga, these answers will help you begin with confidence.</p>
+          <p class="lead">Common questions about Manas, sessions, and how to begin your inward journey.</p>
         </div>
         <div class="faq-list reveal">
           <div class="faq-item is-open">
+            <button class="faq-q" type="button">What is Manas – A Journey Within?<span class="icon">+</span></button>
+            <div class="faq-a"><p>Manas is an approach that turns your attention inward — helping you search for deeper meaning when the outside world no longer satisfies you, or when you want to enhance your joyful experience.</p></div>
+          </div>
+          <div class="faq-item">
             <button class="faq-q" type="button">Do I need previous yoga experience?<span class="icon">+</span></button>
-            <div class="faq-a"><p>No. Classes and guidance are designed for complete beginners as well as those looking to deepen an existing practice.</p></div>
+            <div class="faq-a"><p>No. Sessions are designed for beginners as well as those who want to correct their existing practice. Kesha will guide you step by step.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" type="button">Can I practice yoga at home?<span class="icon">+</span></button>
-            <div class="faq-a"><p>Yes. Many sessions are suitable for home practice so you can learn comfortably at your own pace with minimal equipment.</p></div>
+            <button class="faq-q" type="button">What is a yoga consultation?<span class="icon">+</span></button>
+            <div class="faq-a"><p>A one-on-one session where Kesha teaches, checks, and corrects the practices you are doing, and guides you further based on her wisdom and 15+ years of experience.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" type="button">How often should I practice?<span class="icon">+</span></button>
-            <div class="faq-a"><p>Even 15–20 minutes of regular practice can make a meaningful difference. Consistency matters more than long sessions.</p></div>
+            <button class="faq-q" type="button">Can you help with specific health concerns?<span class="icon">+</span></button>
+            <div class="faq-a"><p>Yes. Group and one-on-one sessions are available for problem-specific needs, including blood sugar, thyroid, blood pressure, obesity, post-pregnancy recovery, and more — all addressed through a yogic approach.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q" type="button">What should I wear?<span class="icon">+</span></button>
-            <div class="faq-a"><p>Wear comfortable clothing that allows free movement. A yoga mat is helpful, but many beginner practices need no special equipment.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" type="button">How can I start with Manas Yoga Routine?<span class="icon">+</span></button>
-            <div class="faq-a"><p>Begin with our YouTube videos or Instagram practices, then reach out through the contact section for classes and personalized guidance.</p></div>
+            <button class="faq-q" type="button">How can I access free workshops and live sessions?<span class="icon">+</span></button>
+            <div class="faq-a"><p>Follow our Instagram, Facebook, and YouTube channels. Free workshops and live sessions are announced from time to time for our community.</p></div>
           </div>
         </div>
       </div>
@@ -1342,16 +1475,17 @@
     <section class="section" id="contact">
       <div class="container reveal">
         <div class="cta-band">
-          <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Begin Today</p>
-          <h2>Ready To Return To Balance?</h2>
-          <p>Join the community, explore free practices, and start building a calm, consistent yoga routine.</p>
+          <p class="eyebrow" style="color: rgba(255,255,255,0.85);">Start Today</p>
+          <h2>Book Today To Start Your New Lifestyle The Yoga Way</h2>
+          <p>Book a session with Kesha, explore free videos, and follow us on social media for workshops and live sessions.</p>
           <div class="btn-group">
-            <a href="https://www.youtube.com/@YogaBacktotheBasics" class="btn btn-light" target="_blank" rel="noopener">Watch Free Videos</a>
-            <a href="https://www.instagram.com/yogabacktothebasics8" class="btn btn-outline" style="border-color:#fff;color:#fff;" target="_blank" rel="noopener">Follow On Instagram</a>
+            <a href="mailto:hello@manasyogaroutine.com" class="btn btn-light">Book a Session</a>
+            <a href="https://www.youtube.com/@YogaBacktotheBasics" class="btn btn-outline" style="border-color:#fff;color:#fff;" target="_blank" rel="noopener">Watch Free Videos</a>
           </div>
         </div>
       </div>
     </section>
+  
   </main>
 
   <footer class="site-footer">
@@ -1359,23 +1493,23 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#home" class="logo" aria-label="Manas Yoga Routine">
-            <img src="https://cdn.jsdelivr.net/gh/Ranjan-Kashyap/manasyogaroutine@main/assets/logo-light.png" alt="Manas Yoga Routine" width="260" height="49" />
+            <img src="https://cdn.jsdelivr.net/gh/Ranjan-Kashyap/manasyogaroutine@main/assets/logo-badge.png?v=1" alt="Manas Yoga Routine" width="92" height="92" />
           </a>
-          <p>Authentic yoga made simple — practical routines for strength, clarity, and inner peace in everyday life.</p>
+          <p>Manas – A Journey Within. Women- and children-focused yoga guidance to help you find joy within.</p>
         </div>
         <div class="footer-col">
           <h4>Explore</h4>
           <a href="#about">About</a>
-          <a href="#programs">Programs</a>
-          <a href="#limbs">Eight Limbs</a>
+          <a href="#programs">Services</a>
+          <a href="#sessions">Book a Session</a>
           <a href="#faq">FAQ</a>
         </div>
         <div class="footer-col">
           <h4>Practice</h4>
           <a href="#videos">YouTube Library</a>
           <a href="#instagram">Instagram</a>
-          <a href="#guide">Meet Your Guide</a>
-          <a href="#contact">Join Free Class</a>
+          <a href="#guide">Meet Kesha</a>
+          <a href="#contact">Book a Session</a>
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
@@ -1398,7 +1532,7 @@
       </div>
       <div class="footer-bottom">
         <span>© <span id="year"></span> Manas Yoga Routine. All rights reserved.</span>
-        <span>Ancient Wisdom · Modern Living</span>
+        <span>A Journey Within</span>
       </div>
     </div>
   </footer>
